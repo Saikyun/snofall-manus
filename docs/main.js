@@ -9,7 +9,7 @@
     }
 
     function scrollToBottom() {
-        var progress = 0.0;
+/*        var progress = 0.0;
         var start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         var dist = document.body.scrollHeight - window.innerHeight - start;
         if( dist < 0 ) return;
@@ -23,7 +23,7 @@
             window.scrollTo(0, start + lerp*dist);
             if( t < 1 ) requestAnimationFrame(step);
         }
-        requestAnimationFrame(step);
+        requestAnimationFrame(step);*/
     }
 
     function continueStory() {

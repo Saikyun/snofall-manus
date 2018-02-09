@@ -49,6 +49,7 @@ Skärmen är nästan svart, förutom en kägla av ljus som lyser på en person i
 Ljuset kommer från ett fönster bakom personen. Man ser snöflingor som yr, och fönsterblecket är på utsidan täckt av vit snö. Ljuset är typiskt gatuljusgult. Fönstret verkar befinna sig på sjätte våningen. Det är natt, eller åtminstone kväll. Personen sitter på en skrivbordsstol, lutad över ett brunt, gammaldags skrivbord och smuttar på en kaffe. #scenbeskrivning
 
 * "Kaffet smakar förjävligt. Idag igen. Jag borde verkligen ta med en bryggare[."]" tänkte Sol. -> next1
+* Skippa till korridoren -> alternativ_i_korridoren
 
 === next1 ===
 
@@ -75,7 +76,9 @@ Klick. #event-turnlampon
 
 En gammal kontorslampa flimrar igång i taket. Det svarta faller. Man ser att Sol sitter vid ett skrivbord mitt i rummet. Vid väggarna står diverse skåp. Vid dörren står en rockhängare. I dörröppningen står Per. En mörkhårig man iförd kostym. #scenbeskrivning
 
-* "Åh, hej Per, jag märkte inte att du kom in. Per, visst vore det trevligt med lite handbryggtkaffe, fast ja, med maskin då-[]" började Sol.
+Skrivbordet är fyllt med diverse papper som ligger huller om buller. De flesta är brunt märkta av kaffekoppars nederdel.
+
+* "Åh, hej Per, jag märkte inte att du kom in. Per, visst vore det trevligt med lite handbryggt kaffe, fast ja, med maskin då-[]" började Sol.
 
 - "Vad snackar du om?" utbrast Per.
 
@@ -180,13 +183,12 @@ Sol kliver ut i den smala korridoren. Mitt emot ligger Ingvars rum, men det är 
     Sol knackar på dörren, men får inget svar. Sol tittar in genom rutan, och som förväntat ser Sol ingen. #scenbeskrivning
     "Antagligen är han och köper cheeseburgare," tänkte Sol.
     -> alternativ_i_korridoren
-*   [Saras dörr]
-    Sol går fram till dörren. Det sitter en affisch för rutan, med en bild av en ledsen hund och en text om djurens rätt. #scenbeskrivning
-    "Djurens rätt? Är det Ingvar som varit i farten igen?" tänkte Sol. "Han ser ut som en gubbstrut men har ett hjärta av guld. Och kolestrol."
-    Sol knackar på dörren. Efter några sekunder öppnas den av Sara. Hon är klädd i sin uniform, med sitt bruna hår uppsatt i en knut. Av någon anledning går hon omkring i strumplästen. Hon tittar på Sol och spärrar upp ögonen. #scenbeskrivning
-    "S-Sol! Vad gör du här?" stammar Sara fram.
-    "Hej Sara!" svarade Sol.
-    -> prata_med_sara
+* { not prata_med_sara.intro }   [Saras dörr]
+    -> prata_med_sara.intro
++ { prata_med_sara.intro }       [Saras dörr]
+    Sol knackar på Saras dörr. Efter en stund öppnar hon.
+    "Hej igen Sol," säger Sara. "Var det något mer?"
+    -> prata_med_sara.level_2
 +   [Hiss]
     Sol går fram till den gråglänsande hissen. Han trycker på knappen. Över hissen lyser lampor som indikerar vilken våning hissen är på. 1, 2, 3 lyser en efter en. 4, 5, 6. Pling! Hissdörrarna går sakta upp. #scen
 
@@ -199,9 +201,16 @@ Sol kliver ut i den smala korridoren. Mitt emot ligger Ingvars rum, men det är 
             -> alternativ_i_korridoren
 
 === prata_med_sara ===
+= intro
+Sol går fram till dörren. Det sitter en affisch för rutan, med en bild av en ledsen hund och en text om djurens rätt. #scenbeskrivning
+"Djurens rätt? Är det Ingvar som varit i farten igen?" tänkte Sol. "Han ser ut som en gubbstrut men har ett hjärta av guld. Och kolestrol."
+Sol knackar på dörren. Efter några sekunder öppnas den av Sara. Hon är klädd i sin uniform, med sitt bruna hår uppsatt i en knut. Av någon anledning går hon omkring i strumplästen. Hon tittar på Sol och spärrar upp ögonen. #scenbeskrivning
+"S-Sol! Vad gör du här?" stammar Sara fram.
+"Hej Sara!" svarade Sol.
+
 *   "Jo, jag tänkte höra med dig om det här gräsliga fallet."
     "Hm? Vilket fall pratar du om Sol?" frågade Sara.
-**  "Det förstår du väl!["], jag pratar förstås om fallet där Doris, blivit skjuten."
+**  "Det förstår du väl!["], jag pratar förstås om fallet där Doris blivit skjuten."
      "Åh" svarade Sara. Hon tittade ner i backen. "Jo, det är så hemskt. Doris var alltid så snäll mot oss..."
      *** "Oss?"
          Sara tittade upp igen.
@@ -209,23 +218,30 @@ Sol kliver ut i den smala korridoren. Mitt emot ligger Ingvars rum, men det är 
          "Nej jag hade ingen aning," svarade Sol. "Jag antar då att du inte varit inblandad i undersökningen?"
          Sara vänder på huvudet.
          "Nej, så klart inte. Jag har ju själv en chans att ärva av henne," sa Sara. "Så Per bedömde det lämpligast att jag och Ingvar inte blandar oss in i den här undersökningen."
-            -> sara_level_2
+            -> level_2
 
-=== sara_level_2 ===
+= level_2
 *   "Så du vet alltså ingenting om fallet?["]" frågade Sol.
     "Nej, precis. Jag har hållt mig upptagen med diverse småbrott som kommit i kläm. Gäng som misshandlat butikspersonal och dylikt mys..." svarade Sara med ett leende.
-    -> sara_level_2
+    -> level_2
 * "Har du varit i bevisrummet idag?["]" frågade Sol.
       "Nej jag har bara suttit på kontoret hela dagen!" utbrast Sara.
       "Är det så?" svarade Sol.
-**  Visa filen för Sara.
-    "Sara, enligt den här listan var du där idag," sa Sol.
+      -> level_2
++ -> hej_da_sara
++ { prata_med_per.hitta_lista_med_bevis_besokare }  [Visa listan med de som varit i bevisförvaret för Sara]
+    "Sara, enligt den här listan var du i bevisrummet idag," sa Sol.
     Saras ögon blev stora som tallrikar. Några hårtestar trillar ur tofsen.
     "Ehh- jaha, oj, jag måste ha glömt det!" svarade Sara.
     *** "Glömt...?"
     -> saras_forklaring
     *** "Ljuger du mig rakt i ansiktet?
     -> saras_forklaring
+-> alternativ_i_korridoren
+
+= hej_da_sara
+"Det var allt", sa Sol. "Ta hand om dig."
+"Visst," svarade Sara, och stängde dörren.
 -> alternativ_i_korridoren
 
 === saras_forklaring ===
@@ -243,9 +259,11 @@ Sara står och hulkar.
 *   [Håll om henne]
     Sol kramar Sara.
     Efter en stund backar Sol.
-    Sara torkar sina tårar.
+    -> sara_sager_vad_som_hant
 *   [...]
-    Sara torkar sina tårar.
+    -> sara_sager_vad_som_hant
+= sara_sager_vad_som_hant
+Sara torkar sina tårar.
 **      "Vad är det som har hänt Sara?"[] frågade Sol.
         Sara tittar mot en av alla affischerna, som för att hämta styrka.
         "Som du vet är Doris min farmor, åh, rara söta farmor," sa Sara.
@@ -320,31 +338,34 @@ Väggarna är varmt gula, men de kalla lamporna ger ändock en kylig känsla. Fr
     "Okej, jag börjar undersöka direkt."
     -> per_lvl_1
 
-=== per_lvl_1
-    * *     Har du någon aning om vem det kan vara som stulit den?
-            Nej, hade jag vetat det hade jag inte gått till dig.
+= per_lvl_1
+    * *     "Har du någon aning om vem det kan vara som stulit den?"
+            "Nej, hade jag vetat det hade jag inte gått till dig."
             -> per_lvl_1
-    * *     Varifrån stals vapnet?
-            Enligt rapporten från teknikerna lades den i förvar tillsammans med resten av bevismaterialet.
+    * *     "Varifrån stals vapnet?"
+            "Enligt rapporten från teknikerna lades den i förvar tillsammans med resten av bevismaterialet."
             -> per_lvl_2
-        === per_lvl_2
-        * * *   Kan det vara det teknikern som stal vapnet?
-                Nej, hon vabbar sedan i tisdags, och åklagaren, Åke du vet, han som är så nervös, han gick igenom allting iförrgår, och då fanns det uppenbarligen där. Annars hade vi fått höra om det.
+        = per_lvl_2
+        * * *   "Kan det vara det teknikern som stal vapnet?"
+                "Nej, hon vabbar sedan i tisdags, och åklagaren, Åke du vet, han som är så nervös, han gick igenom allting iförrgår, och då fanns det uppenbarligen där. Annars hade vi fått höra om det."
                 -> per_lvl_2
-        * * *   Vem var det som upptäckte att vapnet saknades?
-                Åke, åklagaren, han kom förbi imorse för att gå igenom hela fallet en sista gång. Han är lite tokig den där. Inte undra på att han är ensam.
+        * * *   "Vem var det som upptäckte att vapnet saknades?"
+                "Åke, åklagaren, han kom förbi imorse för att gå igenom hela fallet en sista gång. Han är lite tokig den där. Inte undra på att han är ensam."
             * * * * Och då upptäckte han att vapnet var borta?
-                    Ja, precis. Och ingen på stationen verkar veta var det är. Jag har försökt få ordning på det här hela dagen, men nu börjar jag få panik.
+                    "Ja, precis. Och ingen på stationen verkar veta var det är. Jag har försökt få ordning på det här hela dagen, men nu börjar jag få panik."
                     Per kliar sig i huvudet. Några hårstrån trillar av. #scen
                     Sedan sträcker han fram ett pappersark mot Sol.
                     "Här är en lista på alla som varit i bevisrummet idag," sa Per. "Den kanske kan komma till hjälp.
-                    Sol tar emot pappret.
-                    "Hm, den enda från vår avdelning som varit där är Sara, jag borde börja med att prata med henne." sa Sol.
-            * * * * *   Det är okej Per, jag ska fixa det här[.], sa Sol.
-                        Gör det snabbt bara, svarade Per.
-                        
-                        Per stängde dörren. Kvar var bara de lugnande tonerna från pianot som strömmade genom Pers dörr.
-                        -> vaning_4
+                    -> hitta_lista_med_bevis_besokare
+= hitta_lista_med_bevis_besokare
+Sol tar emot pappret.
+
+"Hm, den enda från vår avdelning som varit där är Sara, jag borde börja med att prata med henne." sa Sol.
+*   "Det är okej Per, jag ska fixa det här["]," sa Sol.
+            "Gör det snabbt bara", svarade Per.
+            
+            Per stängde dörren. Kvar var bara de lugnande tonerna från pianot som strömmade genom Pers dörr.
+            -> vaning_4
 
 
 === GAME_OVER
