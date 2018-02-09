@@ -149,7 +149,6 @@ Efter att ha rättat till kostymen stampar han iväg, och smäller igen dörren.
     Sol går mot dörren, öppnar den, och kliver ut i korridoren. #scenbeskrivning
     -> alternativ_i_korridoren
 
-
 = papper
     Arg är han, men han är bra att hålla ordning. Alla har vi våra laster, men man får inte glömma att de allra flesta är fina människor, på något sätt.
     
@@ -183,9 +182,9 @@ Sol kliver ut i den smala korridoren. Mitt emot ligger Ingvars rum, men det är 
     Sol knackar på dörren, men får inget svar. Sol tittar in genom rutan, och som förväntat ser Sol ingen. #scenbeskrivning
     "Antagligen är han och köper cheeseburgare," tänkte Sol.
     -> alternativ_i_korridoren
-* { not prata_med_sara.intro }   [Saras dörr]
++ { not prata_med_sara.level_2 }   [Saras dörr]
     -> prata_med_sara.intro
-+ { prata_med_sara.intro }       [Saras dörr]
++ { prata_med_sara.level_2 }       [Saras dörr]
     Sol knackar på Saras dörr. Efter en stund öppnar hon.
     "Hej igen Sol," säger Sara. "Var det något mer?"
     -> prata_med_sara.level_2
@@ -208,7 +207,15 @@ Sol knackar på dörren. Efter några sekunder öppnas den av Sara. Hon är klä
 "S-Sol! Vad gör du här?" stammar Sara fram.
 "Hej Sara!" svarade Sol.
 
-*   "Jo, jag tänkte höra med dig om det här gräsliga fallet."
++ { prata_med_per.hitta_lista_med_bevis_besokare }  [Visa listan med de som varit i bevisförvaret för Sara]
+    "Sara, enligt den här listan var du i bevisrummet idag," sa Sol.
+    Saras ögon blev stora som tallrikar. Några hårtestar trillar ur tofsen.
+    "Ehh- jaha, oj, jag måste ha glömt det!" svarade Sara.
+    *** "Glömt...?"
+    -> saras_forklaring
+    *** "Ljuger du mig rakt i ansiktet?
+    -> saras_forklaring
++ { alternativ_i_rum.papper }  "Jo, jag tänkte höra med dig om det här gräsliga fallet."
     "Hm? Vilket fall pratar du om Sol?" frågade Sara.
 **  "Det förstår du väl!["], jag pratar förstås om fallet där Doris blivit skjuten."
      "Åh" svarade Sara. Hon tittade ner i backen. "Jo, det är så hemskt. Doris var alltid så snäll mot oss..."
@@ -219,6 +226,11 @@ Sol knackar på dörren. Efter några sekunder öppnas den av Sara. Hon är klä
          Sara vänder på huvudet.
          "Nej, så klart inte. Jag har ju själv en chans att ärva av henne," sa Sara. "Så Per bedömde det lämpligast att jag och Ingvar inte blandar oss in i den här undersökningen."
             -> level_2
++   "Jag ville bara kolla hur läget var!"[] sa Sol.
+    Sara lyfter ena ögonbrynet.
+    "Har du fått i dig för mycket kaffe Sol?" frågade Sara. "Gå och jobba igen."
+    Sol tittar ner i golvet. Sedan på Sara igen.
+    -> hej_da_sara
 
 = level_2
 *   "Så du vet alltså ingenting om fallet?["]" frågade Sol.
@@ -237,7 +249,6 @@ Sol knackar på dörren. Efter några sekunder öppnas den av Sara. Hon är klä
     -> saras_forklaring
     *** "Ljuger du mig rakt i ansiktet?
     -> saras_forklaring
--> alternativ_i_korridoren
 
 = hej_da_sara
 "Det var allt", sa Sol. "Ta hand om dig."
