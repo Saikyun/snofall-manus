@@ -130,10 +130,27 @@ Efter att ha rättat till kostymen stampar han iväg, och smäller igen dörren.
     
     ...
     
-    Det är åtminstone lördag, i alla fall!
-    -> alternativ_i_rum
+    Det är åtminstone lördag, i alla fall! -> alternativ_i_rum
     
 *   [Papper på skrivbord]
+-> papper
+    
+*   [Fönstret]
+    Tänk att mörkret kan vara så svart, och snön så vit.
+    -> alternativ_i_rum
+    
+*   [Blommor på hylla]
+    "Usch, tänk att ni fick se det där hemska. Men vi ska se om hon går att rädda!"
+    
+    Tur att blommor inte har så höga krav på ens förmåga att hålla löften.
+    -> alternativ_i_rum
+    
++   [Dörren]
+    Sol går mot dörren, öppnar den, och kliver ut i korridoren. #scenbeskrivning
+    -> alternativ_i_korridoren
+
+
+= papper
     Arg är han, men han är bra att hålla ordning. Alla har vi våra laster, men man får inte glömma att de allra flesta är fina människor, på något sätt.
     
     Nåväl, nu ska vi väl ta och se vad som har hänt...
@@ -156,29 +173,12 @@ Efter att ha rättat till kostymen stampar han iväg, och smäller igen dörren.
     
     -> alternativ_i_rum
     
-*   [Fönstret]
-    Tänk att mörkret kan vara så svart, och snön så vit.
-    -> alternativ_i_rum
-    
-*   [Blommor på hylla]
-    "Usch, tänk att ni fick se det där hemska. Men vi ska se om hon går att rädda!"
-    
-    Tur att blommor inte har så höga krav på ens förmåga att hålla löften.
-    -> alternativ_i_rum
-    
-*   [Dörren]
-    Sol går mot dörren, öppnar den, och kliver ut i korridoren. #scenbeskrivning
-    -> alternativ_i_korridoren
-
-=== titta_i_filen ===
-
-En kvinna i 80-årsåldern har dött. Tack vare hennes kloka investeringar i möbelindustrin har hon levt ett liv i behaglig lyx.
-
--> alternativ_i_korridoren
-    
 === alternativ_i_korridoren ===
 Sol kliver ut i den smala korridoren. Mitt emot ligger Ingvars rum, men det är tomt just nu. Längre nerför korridoren ligger Saras kontor. Dörrarna därefter är ingångarna till toaletterna, en för damerna och en för herrarna. Längst ner i korridoren är en trappa och en hiss. #scenbeskrivning
 
++   [Sols kontor]
+    Sol går in i sitt kontor.
+    -> alternativ_i_rum
 *   [Ingvars dörr]
     Sol knackar på dörren, men får inget svar. Sol tittar in genom rutan, och som förväntat ser Sol ingen. #scenbeskrivning
     "Antagligen är han och köper cheeseburgare," tänkte Sol.
@@ -314,12 +314,12 @@ Väggarna är varmt gula, men de kalla lamporna ger ändock en kylig känsla. Fr
 *   [Fikarummet]
     Det är ingen här, och jag är inte sugen på mer "kaffe", tänkte Sol.
     -> vaning_4
-*   [Pers kontor]
++   [Pers kontor]
     Sol gick längst bort i korridoren, och knackade på Pers dörr.
     Innanför hörs en mjuk pianomelodi.
     Jag har aldrig träffat någon med musiksmak så skiljt från sitt temperament, tänkte Sol.
     Efter en kort stund öppnar Per dörren.
-    "Vad är det om?" frågade Per.
+    "Vad är det om?" frågade Per. <>
     -> prata_med_per
 +   [Hissen]
     Sol klev in i hissen.
@@ -329,7 +329,12 @@ Väggarna är varmt gula, men de kalla lamporna ger ändock en kylig känsla. Fr
         -> vaning_4
     
 === prata_med_per ===
-*   "Per, jag förstår inte riktigt. Jag läste igenom rapporten. Det låter förvissa som ett gräsligt mord, men ändock, löst. Vad vill du att jag ska göra med det?"
+"Har du läst rapporten än?"
++ { not alternativ_i_rum.papper } "...Nej!"[] svarade Sol.
+"För i helvete Sol!" röt Per. "KOM INTE TILLBAKA FÖRRÄN DU GJORT DET!"
+Per smäller igen dörren så att hela huset skakar.
+-> vaning_4
+* { alternativ_i_rum.papper }  "Per, jag förstår inte riktigt. Jag läste igenom rapporten. Det låter förvissa som ett gräsligt mord, men ändock, löst. Vad vill du att jag ska göra med det?"
     "Mordvapnet är borta."
     "Va?"
     "Någon har tagit mordvapnet. Och rättegången är i övermorgon."
